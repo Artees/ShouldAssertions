@@ -14,15 +14,6 @@
         <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <LangVersion>4</LangVersion>
-        <Version>1.0.0.0</Version>
-        <Authors>Artees</Authors>
-        <Company>Artees</Company>
-        <Description>A BDD library for testing C# code.</Description>
-        <Copyright>Copyright © Artees 2018</Copyright>
-        <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
-        <PackageProjectUrl>http://artees.pw/</PackageProjectUrl>
-        <PackageIconUrl>http://artees.pw/img/icon.png</PackageIconUrl>
-        <PackageTags>testing test assert tdd bdd behavior</PackageTags>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -71,17 +62,22 @@
         <Compile Include="Artees\Diagnostics\BDD\ValueThrow.cs"/>
         <Compile Include="Artees\Diagnostics\BDD\WarningShouldListener.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Content Include="$(OutputPath)$(AssemblyName).xml" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' "/>
-        <Content Include="PackNuGet.bat" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "/>
-        <Content Include="PushNuGet.bat" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "/>
+        <Content Include="$(OutputPath)$(AssemblyName).xml"
+                 Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' "/>
+        <Content Include="PackNuGet.bat"
+                 Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "/>
+        <Content Include="PushNuGet.bat"
+                 Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "/>
+        <Content Include="ShouldAssertions.nuspec"
+                 Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
                                              Other similar extension points exist, see Microsoft.Common.targets.
                                         <Target Name="BeforeBuild">
                                         </Target>
-                                        -->
     <Target Name="AfterBuild">
         <Exec Command="..\Inheritdoc\Windows\InheritdocInliner.exe $(OutputPath)$(AssemblyName).xml" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' AND '$(OS)' == 'Windows_NT' "/>
     </Target>
+                                        -->
 </Project>

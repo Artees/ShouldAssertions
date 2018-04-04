@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>$id$</id>
+        <title>$id$</title>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
+        <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/Artees/ShouldAssertions</projectUrl>
+        <iconUrl>http://artees.pw/img/icon.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A BDD library for testing C# code.</description>
+        <copyright>Copyright © Artees 2018</copyright>
+        <tags>testing test assert tdd bdd behavior</tags>
+        <version>1.0.1</version>
+        <releaseNotes>Fixed package metadata.</releaseNotes>
+    </metadata>
+</package>
