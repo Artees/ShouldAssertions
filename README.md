@@ -2,6 +2,11 @@ A BDD library for testing C# code inspired by
 [Jasmine](https://jasmine.github.io/),
 [Buddy](https://github.com/ciscoheat/buddy), etc.
 
+# Installation
+Install the [NuGet package](https://www.nuget.org/packages/ShouldAssertions/)
+or download the latest
+[DLL from GitHub](https://github.com/Artees/ShouldAssertions/releases).
+
 # Usage
 Use the `Artees.Diagnostics.BDD.ShouldExtensions.Should` extension methods for
 setting invariants in your code. The assertions will be ignored unless
