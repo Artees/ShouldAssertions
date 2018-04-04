@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{2FBA34B5-6D6E-4434-9411-5994D9600FD9}</ProjectGuid>
+        <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>
+        </RootNamespace>
+        <AssemblyName>ShouldAssertionsTest</AssemblyName>
+        <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <LangVersion>4</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>..\ShouldAssertionsUnity\Assets\Tests\Play\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE;SHOULD_ASSERTIONS</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>..\ShouldAssertionsUnity\Assets\Tests\Play\Release\</OutputPath>
+        <DefineConstants>TRACE;SHOULD_ASSERTIONS</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+            <HintPath>..\packages\NUnit.3.5.0\lib\net35\nunit.framework.dll</HintPath>
+        </Reference>
+        <Reference Include="System"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Xml"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="ShouldAssertionsTest\NUnitShouldListener.cs"/>
+        <Compile Include="ShouldAssertionsTest\ShouldAssertionTests.cs"/>
+        <Compile Include="ShouldAssertionsTest\ShouldAssertionTracingTest.cs"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\ShouldAssertions\ShouldAssertions.csproj">
+            <Project>{BEF5D289-19D4-4045-8EF5-9ABBB1513F8F}</Project>
+            <Name>ShouldAssertions</Name>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="packages.config"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="GetCoverage.bat"/>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+                   Other similar extension points exist, see Microsoft.Common.targets.
+              <Target Name="BeforeBuild">
+              </Target>
+              <Target Name="AfterBuild">
+              <Exec Command="GetCoverage.bat $(OutputPath)$(AssemblyName).dll" 
+                    Condition="'$(OS)' == 'Windows_NT'" />
+              </Target>
+              -->
+</Project>
