@@ -2,7 +2,7 @@
 ![GitHub release](https://img.shields.io/github/release/Artees/ShouldAssertions.svg?style=flat-square)
 ![NuGet](https://img.shields.io/nuget/v/ShouldAssertions.svg?style=flat-square)
 &nbsp;&nbsp;&nbsp;&nbsp;
-![Build](http://artees.esy.es/unity_build_badge?upid=9ed7fcc9-c0e8-4696-961b-511ff5fff981)
+![Build](https://artees.games/unity-build-report?upid=9ed7fcc9-c0e8-4696-961b-511ff5fff981)
 [![codecov](https://codecov.io/gh/Artees/ShouldAssertions/branch/master/graph/badge.svg)](https://codecov.io/gh/Artees/ShouldAssertions)
 [![CodeFactor](https://www.codefactor.io/repository/github/artees/shouldassertions/badge)](https://www.codefactor.io/repository/github/artees/shouldassertions)
 ![Documentation](ShouldAssertions/doc_cover/badge.svg)
