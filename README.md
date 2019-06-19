@@ -12,7 +12,7 @@ A BDD library for testing C# code inspired by
 [Buddy](https://github.com/ciscoheat/buddy), etc.
 
 # Installation
-Use [my package registry](https://artees.games/upm).
+Use [NuGet](https://www.nuget.org/packages/ShouldAssertions/) or [my Unity package registry](https://artees.games/upm).
 
 ## Usage
 Use the `Artees.Diagnostics.BDD.ShouldExtensions.Should` extension methods for
