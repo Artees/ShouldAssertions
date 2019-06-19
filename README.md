@@ -11,6 +11,9 @@ A BDD library for testing C# code inspired by
 [Jasmine](https://jasmine.github.io/),
 [Buddy](https://github.com/ciscoheat/buddy), etc.
 
+# Installation
+Use [my package registry](https://artees.games/upm).
+
 ## Usage
 Use the `Artees.Diagnostics.BDD.ShouldExtensions.Should` extension methods for
 setting invariants in your code. The assertions will be ignored unless

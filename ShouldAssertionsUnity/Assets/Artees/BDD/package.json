@@ -1,0 +1,14 @@
+
+{
+    "name" : "games.artees.should-assertions",
+    "version" : "2.0.0",
+    "displayName" : "Should Assertions",
+    "description" : "A BDD library for testing C# code",
+    "unity"       : "2019.1",
+    "unityRelease" : "",
+    "author"       : {
+        "name" : "Artees",
+        "email" : "yo@artees.games",
+        "url"   : "https://github.com/Artees/ShouldAssertions"
+    }
+}

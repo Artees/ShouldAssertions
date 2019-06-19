@@ -1,4 +1,4 @@
-﻿using Artees.Diagnostics.BDD;
+﻿using Artees.BDD;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 

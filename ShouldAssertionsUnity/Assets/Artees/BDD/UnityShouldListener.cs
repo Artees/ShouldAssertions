@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Artees.Diagnostics.BDD
+namespace Artees.BDD
 {
 	public class UnityShouldListener : ShouldListener 
 	{
