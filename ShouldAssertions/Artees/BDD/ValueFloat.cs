@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Artees.Diagnostics.BDD
+namespace Artees.BDD
 {
     /// <inheritdoc />
     public class ValueFloat : Value<float>
@@ -9,8 +9,8 @@ namespace Artees.Diagnostics.BDD
         internal ValueFloat(float actual, Func<string> getName) : base(actual, getName)
         {
         }
-        
-        /// <inheritdoc cref="ValueDouble.BeEqual"/>
+
+        /// <inheritdoc cref="ValueDouble.BeEqual" />
         [Conditional(ShouldAssertions.Define)]
         public void BeEqual(float expected, float delta = float.Epsilon)
         {
@@ -18,7 +18,7 @@ namespace Artees.Diagnostics.BDD
             LogShouldBeEqualError(expected);
         }
 
-        /// <inheritdoc cref="ValueDouble.BeNaN"/>
+        /// <inheritdoc cref="ValueDouble.BeNaN" />
         [Conditional(ShouldAssertions.Define)]
         public void BeNaN()
         {

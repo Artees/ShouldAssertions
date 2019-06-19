@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Artees.Diagnostics.BDD
+namespace Artees.BDD
 {
     /// <inheritdoc />
     /// <exception cref="ShouldException">Thrown on a failure.</exception>

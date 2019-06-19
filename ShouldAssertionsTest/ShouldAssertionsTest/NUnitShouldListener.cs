@@ -1,4 +1,4 @@
-﻿using Artees.Diagnostics.BDD;
+﻿using Artees.BDD;
 using NUnit.Framework;
 
 namespace ShouldAssertionsTest

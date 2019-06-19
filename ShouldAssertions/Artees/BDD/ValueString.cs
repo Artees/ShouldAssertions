@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Artees.Diagnostics.BDD
+namespace Artees.BDD
 {
     /// <inheritdoc />
     public class ValueString : Value<string>
@@ -11,7 +11,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Asserts that the string contains a substring.
+        ///     Asserts that the string contains a substring.
         /// </summary>
         [Conditional(ShouldAssertions.Define)]
         public void Contains(string substring)

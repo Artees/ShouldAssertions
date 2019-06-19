@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Artees.Diagnostics.BDD;
+using Artees.BDD;
 using NUnit.Framework;
 
 namespace ShouldAssertionsTest
@@ -9,6 +9,23 @@ namespace ShouldAssertionsTest
     [TestFixture]
     public class ShouldAssertionTracingTest : TraceListener
     {
+        [SetUp]
+        public void SetUp()
+        {
+            _listeners = ShouldAssertions.Listeners.ToList();
+            ShouldAssertions.Clear();
+            Trace.Listeners.Add(this);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            ShouldAssertions.Listeners.Clear();
+            ShouldAssertions.Listeners.AddRange(_listeners);
+            Trace.Listeners.Remove(this);
+            _trace = string.Empty;
+        }
+
         private string _trace = string.Empty;
 
         public override void Write(string message)
@@ -23,23 +40,6 @@ namespace ShouldAssertionsTest
 
         private List<ShouldListener> _listeners;
 
-        [SetUp]
-        public void SetUp()
-        {
-            _listeners = ShouldAssertions.Listeners.ToList();
-            ShouldAssertions.Clear();
-            Trace.Listeners.Add(this);
-        }
-        
-        [Test]
-        public void TestEmptyWarningShouldListenerTrace()
-        {
-            true.Should().BeFalse();
-            var listener = new NUnitShouldListener();
-            ShouldAssertions.Listeners.Add(listener);
-            _trace.Should().Not().BeEqual(string.Empty);
-        }
-        
         [Test]
         public void TestEmptyWarningShouldListenerDontTrace()
         {
@@ -56,11 +56,12 @@ namespace ShouldAssertionsTest
             {
                 ShouldAssertions.Listeners.Remove(exceptionListener);
             }
+
             var listener = new NUnitShouldListener();
             ShouldAssertions.Listeners.Add(listener);
             _trace.Should().BeEqual(string.Empty);
         }
-        
+
         [Test]
         public void TestEmptyWarningShouldListenerPending()
         {
@@ -68,6 +69,25 @@ namespace ShouldAssertionsTest
             var listener = new NUnitShouldListener();
             ShouldAssertions.Listeners.Add(listener);
             _trace.Should().Not().BeEqual(string.Empty);
+        }
+
+        [Test]
+        public void TestEmptyWarningShouldListenerTrace()
+        {
+            true.Should().BeFalse();
+            var listener = new NUnitShouldListener();
+            ShouldAssertions.Listeners.Add(listener);
+            _trace.Should().Not().BeEqual(string.Empty);
+        }
+
+        [Test]
+        public void TestNull()
+        {
+            ShouldAssertions.Listeners.Add(new TraceShouldListener());
+            const string name = "Null object";
+            ((object) null).Aka(name).Should().Not().BeNull();
+            ShouldAssertions.Listeners.Add(new NUnitShouldListener());
+            _trace.Should().Contains(name);
         }
 
         [Test]
@@ -102,25 +122,6 @@ namespace ShouldAssertionsTest
             3.Should("be equal 2");
             ShouldAssertions.Listeners.Add(new NUnitShouldListener());
             _trace.Should().Contains("should");
-        }
-
-        [Test]
-        public void TestNull()
-        {
-            ShouldAssertions.Listeners.Add(new TraceShouldListener());
-            const string name = "Null object";
-            ((object) null).Aka(name).Should().Not().BeNull();
-            ShouldAssertions.Listeners.Add(new NUnitShouldListener());
-            _trace.Should().Contains(name);
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            ShouldAssertions.Listeners.Clear();
-            ShouldAssertions.Listeners.AddRange(_listeners);
-            Trace.Listeners.Remove(this);
-            _trace = string.Empty;
         }
     }
 }

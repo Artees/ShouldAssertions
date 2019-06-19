@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Artees.Diagnostics.BDD
+namespace Artees.BDD
 {
     /// <inheritdoc />
     /// <summary>Thrown when a "should" assertion failed.</summary>

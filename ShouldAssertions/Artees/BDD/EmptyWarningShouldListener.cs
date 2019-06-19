@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Artees.Diagnostics.BDD
+namespace Artees.BDD
 {
     internal class EmptyWarningShouldListener : ShouldListener
     {

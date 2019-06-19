@@ -2,20 +2,18 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Artees.Diagnostics.BDD
+namespace Artees.BDD
 {
     /// <summary>
-    /// Contains the methods that implement the <see cref="ShouldAssertions"/>.
+    ///     Contains the methods that implement the <see cref="ShouldAssertions" />.
     /// </summary>
     public abstract class Value
     {
-        internal bool IsPositive { get; set; }
-
         private readonly Func<string> _getName;
 
         /// <summary>
-        /// Initializes an instance of the <see cref="Value"/> class used in
-        /// <see cref="ShouldAssertions"/>.
+        ///     Initializes an instance of the <see cref="Value" /> class used in
+        ///     <see cref="ShouldAssertions" />.
         /// </summary>
         protected Value(Func<string> getName)
         {
@@ -23,8 +21,10 @@ namespace Artees.Diagnostics.BDD
             IsPositive = true;
         }
 
+        internal bool IsPositive { get; set; }
+
         /// <summary>
-        /// The value name for human-readable output.
+        ///     The value name for human-readable output.
         /// </summary>
         protected string Name
         {
@@ -32,7 +32,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Returns "should" for a regular assertion and "should not" for an inverted one.
+        ///     Returns "should" for a regular assertion and "should not" for an inverted one.
         /// </summary>
         protected string Should
         {
@@ -40,7 +40,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Returns a string that represents the actual (not the expected) value.
+        ///     Returns a string that represents the actual (not the expected) value.
         /// </summary>
         protected abstract string ActualString { get; }
 
@@ -62,7 +62,7 @@ namespace Artees.Diagnostics.BDD
             return actual.Aka(_getName).Should();
         }
 
-        /// <inheritdoc cref="ActualShould{T}(T)"/>
+        /// <inheritdoc cref="ActualShould{T}(T)" />
         protected ValueEnumerable<T> ActualShould<T>(IEnumerable<T> actual)
         {
             return actual.Aka(_getName).Should();
@@ -73,9 +73,14 @@ namespace Artees.Diagnostics.BDD
     public class Value<T> : Value
     {
         /// <summary>
-        /// The actual (not the expected) value.
+        ///     The actual (not the expected) value.
         /// </summary>
         protected readonly T Actual;
+
+        internal Value(T actual, Func<string> getName) : base(getName)
+        {
+            Actual = actual;
+        }
 
         /// <inheritdoc />
         protected override string ActualString
@@ -83,13 +88,13 @@ namespace Artees.Diagnostics.BDD
             get { return Actual.ToStringExplicitly(); }
         }
 
-        internal Value(T actual, Func<string> getName) : base(getName)
+        private Value<T> ActualShould
         {
-            Actual = actual;
+            get { return ActualShould(Actual); }
         }
 
         /// <summary>
-        /// Verifies that two values are equal.
+        ///     Verifies that two values are equal.
         /// </summary>
         /// <param name="expected">The value that is expected</param>
         [Conditional(ShouldAssertions.Define)]
@@ -101,7 +106,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Logs a message when an "equal" assertion failed.
+        ///     Logs a message when an "equal" assertion failed.
         /// </summary>
         protected void LogShouldBeEqualError<TValue>(TValue expected)
         {
@@ -112,7 +117,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Logs a message when a "NaN" assertion failed.
+        ///     Logs a message when a "NaN" assertion failed.
         /// </summary>
         protected void LogShouldBeNaNError()
         {
@@ -122,7 +127,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Asserts that a condition is true.
+        ///     Asserts that a condition is true.
         /// </summary>
         [Conditional(ShouldAssertions.Define)]
         public void BeTrue()
@@ -131,7 +136,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Asserts that a condition is false.
+        ///     Asserts that a condition is false.
         /// </summary>
         [Conditional(ShouldAssertions.Define)]
         public void BeFalse()
@@ -140,7 +145,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Verifies that the object is equal to <code>null</code>.
+        ///     Verifies that the object is equal to <code>null</code>.
         /// </summary>
         [Conditional(ShouldAssertions.Define)]
         public void BeNull()
@@ -149,7 +154,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Verifies that the value is greater.
+        ///     Verifies that the value is greater.
         /// </summary>
         /// <param name="expected">The value that expected to be less</param>
         [Conditional(ShouldAssertions.Define)]
@@ -163,7 +168,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Verifies that the value is less.
+        ///     Verifies that the value is less.
         /// </summary>
         /// <param name="expected">The value that expected to be greater</param>
         [Conditional(ShouldAssertions.Define)]
@@ -177,7 +182,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Verifies that the value is greater or equal.
+        ///     Verifies that the value is greater or equal.
         /// </summary>
         /// <param name="expected">The value that expected to be less</param>
         [Conditional(ShouldAssertions.Define)]
@@ -187,7 +192,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Verifies that the value is less or equal.
+        ///     Verifies that the value is less or equal.
         /// </summary>
         /// <param name="expected">The value that expected to be greater</param>
         [Conditional(ShouldAssertions.Define)]
@@ -197,29 +202,20 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Asserts that the collection contains an item.
+        ///     Asserts that the collection contains an item.
         /// </summary>
         [Conditional(ShouldAssertions.Define)]
         public void Contains<TValue>(TValue item)
         {
             var enumerable = Actual as IEnumerable<TValue>;
             if (enumerable == null)
-            {
                 ActualShould.BeInstanceOf<IEnumerable<TValue>>();
-            }
             else
-            {
                 ActualShould(enumerable).Contains(item);
-            }
-        }
-
-        private Value<T> ActualShould
-        {
-            get { return ActualShould(Actual); }
         }
 
         /// <summary>
-        /// Asserts that the object is an instance of a given type.
+        ///     Asserts that the object is an instance of a given type.
         /// </summary>
         /// <typeparam name="TValue">The expected Type</typeparam>
         [Conditional(ShouldAssertions.Define)]
@@ -232,7 +228,7 @@ namespace Artees.Diagnostics.BDD
         }
 
         /// <summary>
-        /// Asserts that two objects refer to the same object.
+        ///     Asserts that two objects refer to the same object.
         /// </summary>
         [Conditional(ShouldAssertions.Define)]
         public void BeSame<TValue>(TValue expected)
@@ -244,7 +240,7 @@ namespace Artees.Diagnostics.BDD
             LogError(message);
         }
 
-        /// <inheritdoc cref="ShouldListener.LogError"/>
+        /// <inheritdoc cref="ShouldListener.LogError" />
         protected static void LogError(string message)
         {
             ShouldAssertions.Fail(message);

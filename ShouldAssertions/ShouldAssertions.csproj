@@ -47,24 +47,28 @@
     <Reference Include="System.Xml"/>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Artees\Diagnostics\BDD\EmptyWarningShouldListener.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\ExceptionShouldListener.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\ShouldAssertions.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\ShouldException.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\ShouldExtensions.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\ShouldListener.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\TraceShouldListener.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\Value.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\ValueDouble.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\ValueEnumerable.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\ValueFloat.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\ValueString.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\ValueThrow.cs"/>
-    <Compile Include="Artees\Diagnostics\BDD\WarningShouldListener.cs"/>
+    <Compile Include="Artees\BDD\EmptyWarningShouldListener.cs"/>
+    <Compile Include="Artees\BDD\ExceptionShouldListener.cs"/>
+    <Compile Include="Artees\BDD\ShouldAssertions.cs"/>
+    <Compile Include="Artees\BDD\ShouldException.cs"/>
+    <Compile Include="Artees\BDD\ShouldExtensions.cs"/>
+    <Compile Include="Artees\BDD\ShouldListener.cs"/>
+    <Compile Include="Artees\BDD\TraceShouldListener.cs"/>
+    <Compile Include="Artees\BDD\Value.cs"/>
+    <Compile Include="Artees\BDD\ValueDouble.cs"/>
+    <Compile Include="Artees\BDD\ValueEnumerable.cs"/>
+    <Compile Include="Artees\BDD\ValueFloat.cs"/>
+    <Compile Include="Artees\BDD\ValueString.cs"/>
+    <Compile Include="Artees\BDD\ValueThrow.cs"/>
+    <Compile Include="Artees\BDD\WarningShouldListener.cs"/>
     <Compile Include="Properties\AssemblyInfo.cs"/>
     <Content Include="$(OutputPath)$(AssemblyName).xml" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' AND Exists('$(OutputPath)$(AssemblyName).xml')"/>
+    <Content Include="..\README.md">
+      <Link>README.md</Link>
+    </Content>
     <Content Include="PackNuGet.bat" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "/>
     <Content Include="PushNuGet.bat" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "/>
+    <Content Include="GetDocCoverage.bat" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "/>
     <Content Include="ShouldAssertions.nuspec" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "/>
   </ItemGroup>
   <ItemGroup>

@@ -1,13 +1,17 @@
+# ShouldAssertions
+![GitHub release](https://img.shields.io/github/release/Artees/ShouldAssertions.svg?style=flat-square)
+![NuGet](https://img.shields.io/nuget/v/ShouldAssertions.svg?style=flat-square)
+&nbsp;&nbsp;&nbsp;&nbsp;
+![Build](http://artees.esy.es/unity_build_badge?upid=9ed7fcc9-c0e8-4696-961b-511ff5fff981)
+[![codecov](https://codecov.io/gh/Artees/ShouldAssertions/branch/master/graph/badge.svg)](https://codecov.io/gh/Artees/ShouldAssertions)
+[![CodeFactor](https://www.codefactor.io/repository/github/artees/shouldassertions/badge)](https://www.codefactor.io/repository/github/artees/shouldassertions)
+![Documentation](ShouldAssertions/doc_cover/badge.svg)
+
 A BDD library for testing C# code inspired by
 [Jasmine](https://jasmine.github.io/),
 [Buddy](https://github.com/ciscoheat/buddy), etc.
 
-# Installation
-Install the [NuGet package](https://www.nuget.org/packages/ShouldAssertions/)
-or download the latest
-[DLL from GitHub](https://github.com/Artees/ShouldAssertions/releases).
-
-# Usage
+## Usage
 Use the `Artees.Diagnostics.BDD.ShouldExtensions.Should` extension methods for
 setting invariants in your code. The assertions will be ignored unless
 `SHOULD_ASSERTIONS` is defined as a conditional compilation symbol. The
@@ -45,7 +49,7 @@ Every assertion can be negated using the `Not` method:
 myCode.Should().Not().BeEqual("fascinating");
 ```
 
-# Listeners
+## Listeners
 You can integrate ShouldAssertions with
 [Unity's assertions](https://docs.unity3d.com/ScriptReference/Assertions.Assert.html),
 [NUnit](http://nunit.org/), or any other testing framework.
@@ -96,7 +100,7 @@ private void OnDestroy()
 }
 ```
 
-# Assertions
+## Assertions
 | Type              | Example                                      | Description                                                           |
 |:----------------- |:-------------------------------------------- | --------------------------------------------------------------------- |
 | Any               | `3.Should().BeEqual(3)`                      | Verifies that two values are *equal*.                                 |
@@ -115,7 +119,7 @@ private void OnDestroy()
 | `IComparable`     | `3.Should().BeLessThanOrEqual(4)`            | Verifies that the value is *less or equal*.                           |
 | `Action`          | `throwException.Should().Throw<Exception>()` | Verifies that a delegate *throws* a particular exception when called. |
 
-# Pending tests
+## Pending tests
 You can write a pending test and come back to it later or let another developer
 implement it. The following code logs the warning message "Value should be
 fascinating but was glorious".

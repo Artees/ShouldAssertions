@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Artees.Diagnostics.BDD;
+using Artees.BDD;
 using NUnit.Framework;
 
 namespace ShouldAssertionsTest
@@ -9,11 +9,6 @@ namespace ShouldAssertionsTest
     [TestFixture]
     public class ShouldAssertionTests
     {
-        private readonly ShouldListener _nUnitListener = new NUnitShouldListener(),
-            _exceptionListener = new ExceptionShouldListener();
-
-        private List<ShouldListener> _listeners;
-
         [SetUp]
         public void SetUp()
         {
@@ -22,27 +17,17 @@ namespace ShouldAssertionsTest
             ShouldAssertions.Listeners.Add(_nUnitListener);
         }
 
-        [Test]
-        public void TestException()
+        [TearDown]
+        public void TearDown()
         {
-            Action throwShouldException = NullAction;
-            throwShouldException.Should().Not().Throw<Exception>();
-            throwShouldException = ThrowShouldException;
-            throwShouldException.Should().Not().Throw<ShouldException>();
             ShouldAssertions.Listeners.Clear();
-            ShouldAssertions.Listeners.Add(_exceptionListener);
-            throwShouldException.Should().Throw<ShouldException>();
-            throwShouldException.Aka("Throw action").Should().Throw<ShouldException>();
-            throwShouldException.Aka(() => "Throw action").Should().Throw<ShouldException>();
-            throwShouldException = ThrowShouldThrowException;
-            throwShouldException.Should().Throw<ShouldException>();
-            throwShouldException = ThrowShouldNotThrowException;
-            throwShouldException.Should().Throw<ShouldException>();
-            ShouldAssertions.Listeners.Clear();
-            ThrowShouldException();
-            ThrowShouldThrowException();
-            ThrowShouldNotThrowException();
+            ShouldAssertions.Listeners.AddRange(_listeners);
         }
+
+        private readonly ShouldListener _nUnitListener = new NUnitShouldListener(),
+            _exceptionListener = new ExceptionShouldListener();
+
+        private List<ShouldListener> _listeners;
 
         private static void NullAction()
         {
@@ -65,25 +50,20 @@ namespace ShouldAssertionsTest
             throwShouldException.Should().Not().Throw<ShouldException>();
         }
 
-        [Test]
-        public void TestEqual()
+        private static void ThrowShouldBeNullException()
         {
-            3.Should().BeEqual(3);
-            3.Aka("Three").Should().BeEqual(3);
-            3.Aka(() => "Three").Should().BeEqual(3);
-            3.Should().Not().BeEqual(4);
-            3.7f.Should().BeEqual(3.7f);
-            3.7f.Aka("3.7f").Should().BeEqual(3.7f);
-            3.7f.Aka(() => "3.7f").Should().BeEqual(3.701f, 0.1f);
-            3.7f.Should().Not().BeEqual(3.801f, 0.1f);
-            Action throwException = () => 3.7f.Should().BeEqual(3.801f, 0.1f);
-            throwException.Should().Throw<AssertionException>();
-            3.7.Should().BeEqual(3.7);
-            3.7.Aka("3.7").Should().BeEqual(3.7);
-            3.7.Aka(() => "3.7").Should().BeEqual(3.701, 0.1);
-            3.7.Should().Not().BeEqual(3.801, 0.1);
-            throwException = () => 3.7.Should().BeEqual(3.801, 0.1);
-            throwException.Should().Throw<AssertionException>();
+            3.Should().BeNull();
+        }
+
+        [Test]
+        public void TestBool()
+        {
+            true.Should().BeTrue();
+            false.Should().BeFalse();
+            false.Should().Not().BeTrue();
+            true.Should().Not().BeFalse();
+            3.Should().Not().BeTrue();
+            3.Should().Not().BeFalse();
         }
 
         [Test]
@@ -125,48 +105,6 @@ namespace ShouldAssertionsTest
         }
 
         [Test]
-        public void TestBool()
-        {
-            true.Should().BeTrue();
-            false.Should().BeFalse();
-            false.Should().Not().BeTrue();
-            true.Should().Not().BeFalse();
-            3.Should().Not().BeTrue();
-            3.Should().Not().BeFalse();
-        }
-
-        [Test]
-        public void TestNull()
-        {
-            ((object) null).Should().BeNull();
-            3.Should().Not().BeNull();
-            Action throwShouldBeNullException = ThrowShouldBeNullException;
-            throwShouldBeNullException.Should().Throw<AssertionException>();
-            ShouldAssertions.Listeners.Clear();
-            ThrowShouldBeNullException();
-        }
-
-        private static void ThrowShouldBeNullException()
-        {
-            3.Should().BeNull();
-        }
-
-        [Test]
-        public void TestNaN()
-        {
-            (0.0f / 0.0f).Should().BeNaN();
-            (0.0f / 0.1f).Should().Not().BeNaN();
-            (0.0 / 0.0).Should().BeNaN();
-            (0.0 / 0.1).Should().Not().BeNaN();
-            Action action = () => 3.7f.Should().BeNaN();
-            action.Should().Throw<AssertionException>();
-            action = () => 3.7.Should().BeNaN();
-            action.Should().Throw<AssertionException>();
-            ShouldAssertions.Listeners.Clear();
-            3.7f.Should().BeNaN();
-        }
-
-        [Test]
         public void TestContains()
         {
             new[] {1, 2, 7}.Aka<int>("Array").Should().Contains(2);
@@ -196,6 +134,72 @@ namespace ShouldAssertionsTest
         }
 
         [Test]
+        public void TestDispose()
+        {
+            ShouldAssertions.Listeners.Remove(_nUnitListener);
+            Action a = ThrowShouldException;
+            using (var listener = new NUnitShouldListener())
+            {
+                ShouldAssertions.Listeners.Add(listener);
+                a.Should().Throw<AssertionException>();
+            }
+
+            a.Should().Not().Throw<AssertionException>();
+        }
+
+        [Test]
+        public void TestEqual()
+        {
+            3.Should().BeEqual(3);
+            3.Aka("Three").Should().BeEqual(3);
+            3.Aka(() => "Three").Should().BeEqual(3);
+            3.Should().Not().BeEqual(4);
+            3.7f.Should().BeEqual(3.7f);
+            3.7f.Aka("3.7f").Should().BeEqual(3.7f);
+            3.7f.Aka(() => "3.7f").Should().BeEqual(3.701f, 0.1f);
+            3.7f.Should().Not().BeEqual(3.801f, 0.1f);
+            Action throwException = () => 3.7f.Should().BeEqual(3.801f, 0.1f);
+            throwException.Should().Throw<AssertionException>();
+            3.7.Should().BeEqual(3.7);
+            3.7.Aka("3.7").Should().BeEqual(3.7);
+            3.7.Aka(() => "3.7").Should().BeEqual(3.701, 0.1);
+            3.7.Should().Not().BeEqual(3.801, 0.1);
+            throwException = () => 3.7.Should().BeEqual(3.801, 0.1);
+            throwException.Should().Throw<AssertionException>();
+        }
+
+        [Test]
+        public void TestException()
+        {
+            Action throwShouldException = NullAction;
+            throwShouldException.Should().Not().Throw<Exception>();
+            throwShouldException = ThrowShouldException;
+            throwShouldException.Should().Not().Throw<ShouldException>();
+            ShouldAssertions.Listeners.Clear();
+            ShouldAssertions.Listeners.Add(_exceptionListener);
+            throwShouldException.Should().Throw<ShouldException>();
+            throwShouldException.Aka("Throw action").Should().Throw<ShouldException>();
+            throwShouldException.Aka(() => "Throw action").Should().Throw<ShouldException>();
+            throwShouldException = ThrowShouldThrowException;
+            throwShouldException.Should().Throw<ShouldException>();
+            throwShouldException = ThrowShouldNotThrowException;
+            throwShouldException.Should().Throw<ShouldException>();
+            ShouldAssertions.Listeners.Clear();
+            ThrowShouldException();
+            ThrowShouldThrowException();
+            ThrowShouldNotThrowException();
+        }
+
+        [Test]
+        public void TestFail()
+        {
+            Action fail = () => ShouldAssertions.Fail();
+            fail.Should().Throw<AssertionException>();
+            Action pending = () => ShouldAssertions.LogPendingTest();
+            pending.Should().Throw<IgnoreException>();
+        }
+
+        [Test]
         public void TestInstance()
         {
             2.Should().BeInstanceOf<int>();
@@ -203,16 +207,29 @@ namespace ShouldAssertionsTest
         }
 
         [Test]
-        public void TestSame()
+        public void TestNaN()
         {
-            var o0 = new object();
-            var o1 = o0;
-            var o2 = new object();
-            o0.Should().BeSame(o1);
-            o0.Should().Not().BeSame(o2);
-            3.7f.Should().Not().BeSame(3.7f);
-            Action action = () => o0.Should().BeSame(o2);
+            (0.0f / 0.0f).Should().BeNaN();
+            (0.0f / 0.1f).Should().Not().BeNaN();
+            (0.0 / 0.0).Should().BeNaN();
+            (0.0 / 0.1).Should().Not().BeNaN();
+            Action action = () => 3.7f.Should().BeNaN();
             action.Should().Throw<AssertionException>();
+            action = () => 3.7.Should().BeNaN();
+            action.Should().Throw<AssertionException>();
+            ShouldAssertions.Listeners.Clear();
+            3.7f.Should().BeNaN();
+        }
+
+        [Test]
+        public void TestNull()
+        {
+            ((object) null).Should().BeNull();
+            3.Should().Not().BeNull();
+            Action throwShouldBeNullException = ThrowShouldBeNullException;
+            throwShouldBeNullException.Should().Throw<AssertionException>();
+            ShouldAssertions.Listeners.Clear();
+            ThrowShouldBeNullException();
         }
 
         [Test]
@@ -233,32 +250,16 @@ namespace ShouldAssertionsTest
         }
 
         [Test]
-        public void TestFail()
+        public void TestSame()
         {
-            Action fail = () => ShouldAssertions.Fail();
-            fail.Should().Throw<AssertionException>();
-            Action pending = () => ShouldAssertions.LogPendingTest();
-            pending.Should().Throw<IgnoreException>();
-        }
-
-        [Test]
-        public void TestDispose()
-        {
-            ShouldAssertions.Listeners.Remove(_nUnitListener);
-            Action a = ThrowShouldException;
-            using (var listener = new NUnitShouldListener())
-            {
-                ShouldAssertions.Listeners.Add(listener);
-                a.Should().Throw<AssertionException>();
-            }
-            a.Should().Not().Throw<AssertionException>();
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            ShouldAssertions.Listeners.Clear();
-            ShouldAssertions.Listeners.AddRange(_listeners);
+            var o0 = new object();
+            var o1 = o0;
+            var o2 = new object();
+            o0.Should().BeSame(o1);
+            o0.Should().Not().BeSame(o2);
+            3.7f.Should().Not().BeSame(3.7f);
+            Action action = () => o0.Should().BeSame(o2);
+            action.Should().Throw<AssertionException>();
         }
     }
 }

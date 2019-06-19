@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
 
-namespace Artees.Diagnostics.BDD
+namespace Artees.BDD
 {
     /// <inheritdoc />
     /// <summary>
-    /// A <see cref="ShouldListener" /> that writes a warning message to the <see cref="Trace"/>
-    /// listeners.
+    ///     A <see cref="ShouldListener" /> that writes a warning message to the <see cref="Trace" />
+    ///     listeners.
     /// </summary>
     public class WarningShouldListener : ShouldListener
     {
