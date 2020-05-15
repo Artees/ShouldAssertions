@@ -7,7 +7,6 @@
 [![codecov](https://codecov.io/gh/Artees/ShouldAssertions/branch/master/graph/badge.svg)](https://codecov.io/gh/Artees/ShouldAssertions)
 [![CodeFactor](https://www.codefactor.io/repository/github/artees/shouldassertions/badge)](https://www.codefactor.io/repository/github/artees/shouldassertions)
 ![Documentation](ShouldAssertions/doc_cover/badge.svg)
-[![openupm](https://img.shields.io/npm/v/games.artees.should-assertions?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/games.artees.should-assertions/)
 
 A BDD library for testing C# code inspired by
 [Jasmine](https://jasmine.github.io/),
