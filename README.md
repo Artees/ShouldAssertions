@@ -1,6 +1,7 @@
 # ShouldAssertions
 ![GitHub release](https://img.shields.io/github/release/Artees/ShouldAssertions.svg?style=flat-square)
 ![NuGet](https://img.shields.io/nuget/v/ShouldAssertions.svg?style=flat-square)
+[![openupm](https://img.shields.io/npm/v/games.artees.should-assertions?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/games.artees.should-assertions/)
 &nbsp;&nbsp;&nbsp;&nbsp;
 ![Build](https://artees.games/unity-build-report?upid=9ed7fcc9-c0e8-4696-961b-511ff5fff981)
 [![codecov](https://codecov.io/gh/Artees/ShouldAssertions/branch/master/graph/badge.svg)](https://codecov.io/gh/Artees/ShouldAssertions)
@@ -14,8 +15,13 @@ A BDD library for testing C# code inspired by
 # Installation
 Use [NuGet](https://www.nuget.org/packages/ShouldAssertions/) or [my Unity package registry](https://artees.games/upm).
 
+Or install via the [OpenUPM registry](https://openupm.com/packages/games.artees.should-assertions/). (Requires [openupm-cli](https://github.com/openupm/openupm-cli))
+```
+openupm add games.artees.should-assertions
+```
+
 ## Usage
-Use the `Artees.Diagnostics.BDD.ShouldExtensions.Should` extension methods for
+Use the `Artees.BDD.ShouldExtensions.Should` extension methods for
 setting invariants in your code. The assertions will be ignored unless
 `SHOULD_ASSERTIONS` is defined as a conditional compilation symbol. The
 following code throws a `ShouldException` with the message "Value should be
@@ -23,7 +29,7 @@ fascinating but was glorious".
 ```
 #define SHOULD_ASSERTIONS
 
-using Artees.Diagnostics.BDD;
+using Artees.BDD;
 
 public class ExampleClass
 {
@@ -58,7 +64,7 @@ You can integrate ShouldAssertions with
 [NUnit](http://nunit.org/), or any other testing framework.
 Create your listener by inheriting from the `ShouldListener` class:
 ```
-using Artees.Diagnostics.BDD;
+using Artees.BDD;
 using UnityEngine;
 
 public class UnityShouldListener : ShouldListener
