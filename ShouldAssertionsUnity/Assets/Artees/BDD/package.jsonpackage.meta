@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b019f6148e606ca9182c34d71f663d77
+guid: e146efed34ff8c564b63ef9c230a3320
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -22,4 +22,4 @@ ScriptedImporter:
     email: yo@artees.games
     url: https://github.com/Artees/ShouldAssertions
   autoExportJson: 1
-  registryUrl: https://registry.my-company.com
+  registryUrl: https://upm.artees.games:4873/

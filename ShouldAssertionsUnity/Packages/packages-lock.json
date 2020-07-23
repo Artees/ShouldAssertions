@@ -34,6 +34,32 @@
       },
       "url": "https://packages.unity.com"
     },
+    "games.artees.litjson": {
+      "version": "0.13.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://upm.artees.games:4873"
+    },
+    "games.artees.package-manifest-generator": {
+      "version": "1.0.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "games.artees.litjson": "0.13.2",
+        "games.artees.semver": "0.3.3"
+      },
+      "url": "https://upm.artees.games:4873"
+    },
+    "games.artees.semver": {
+      "version": "0.3.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.0.18"
+      },
+      "url": "https://upm.artees.games:4873"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
