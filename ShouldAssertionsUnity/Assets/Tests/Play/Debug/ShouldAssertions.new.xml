@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>ShouldAssertions</name>
+    </assembly>
+    <members>
+        <member name="T:Artees.Diagnostics.ShouldAssertions.Extensions" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Action,System.String)">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Action,System.Func{System.String})">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Single,System.String)">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Single,System.Func{System.String})">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Double,System.String)">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Double,System.Func{System.String})">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(System.Collections.Generic.IEnumerable{``0},System.Func{System.String})">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.String,System.String)">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.String,System.Func{System.String})">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(``0,System.String)">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(``0,System.Func{System.String})">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(``0,System.String)">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(``0,System.Func{System.String})" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(System.Collections.Generic.IEnumerable{``0},System.String)" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(System.Collections.Generic.IEnumerable{``0},System.Func{System.String})" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Action,System.String)">
+            <summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Action,System.Func{System.String})" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Single,System.String)" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Single,System.Func{System.String})" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Double,System.String)" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.Double,System.Func{System.String})" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(System.Collections.Generic.IEnumerable{``0},System.String)" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(System.Collections.Generic.IEnumerable{``0},System.Func{System.String})" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.String,System.String)" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka(System.String,System.Func{System.String})" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(``0,System.String)" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.Extensions.Aka``1(``0,System.Func{System.String})" />
+        <member name="T:Artees.Diagnostics.ShouldAssertions.IShouldListener" />
+        <member name="M:Artees.Diagnostics.ShouldAssertions.IShouldListener.LogError(System.String)">
+            <summary>
+            Logs failed tests.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.IShouldListener.LogPending(System.String)">
+            <summary>
+            Logs pending (not implemented) tests.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.IShouldListener.LogError(System.String)">
+            <summary>
+            Logs failed tests.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.IShouldListener.LogPending(System.String)">
+            <summary>
+            Logs pending (not implemented) tests.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.IShouldListener.LogError(System.String)">
+            <summary>
+            Logs failed tests.
+            </summary>
+        </member>
+        <member name="M:Artees.Diagnostics.ShouldAssertions.IShouldListener.LogPending(System.String)">
+            <summary>
+            Logs pending (not implemented) tests.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>ShouldAssertions</name>
+	</assembly>
+	<members>
+		<member name="T:Artees.Diagnostics.BDD.ExceptionShouldListener">
+			<exception cref="T:Artees.Diagnostics.BDD.ShouldException">Thrown on a failure.</exception>
+			<summary>
+            A listener that monitors <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" /> output.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ExceptionShouldListener.LogError(System.String)">
+			<exception cref="T:Artees.Diagnostics.BDD.ShouldException">Thrown on a failure.</exception>
+			<summary>
+            Logs failed tests.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ExceptionShouldListener.LogPending(System.String)">
+			<summary>
+            Logs pending (not implemented) tests.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.IShouldListenerFilterOutput.LogError(System.String)">
+			<summary>
+            Logs failed tests.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.IShouldListenerFilterOutput.LogPending(System.String)">
+			<summary>
+            Logs pending (not implemented) tests.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.NamespaceShouldListenerFilter">
+			<summary>
+            Filters a <see cref="T:Artees.Diagnostics.BDD.ShouldListener" /> output by its stack trace.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.NamespaceShouldListenerFilter.#ctor(System.String)">
+			<summary>
+             Initializes a new instance of the <see cref="T:Artees.Diagnostics.BDD.NamespaceShouldListenerFilter" /> class that
+             filters a <see cref="T:Artees.Diagnostics.BDD.ShouldListener" /> output by its stack trace.
+             </summary>
+			<param name="ns">
+             An assertion must be called from this namespace, otherwise it will be ignored
+             </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.NamespaceShouldListenerFilter.LogError(System.String)">
+			<summary>
+            Logs failed tests.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.NamespaceShouldListenerFilter.LogPending(System.String)">
+			<summary>
+            Logs pending (not implemented) tests.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.PrefixShouldListenerFilter">
+			<summary>
+            A <see cref="T:Artees.Diagnostics.BDD.ShouldListenerFilter" /> that prepends a prefix to
+            the <see cref="T:Artees.Diagnostics.BDD.ShouldListener" /> output.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.PrefixShouldListenerFilter.#ctor(System.String)">
+			<summary>
+            Initializes a new instance of the <see cref="T:Artees.Diagnostics.BDD.PrefixShouldListenerFilter" /> class that
+            prepends a prefix to the <see cref="T:Artees.Diagnostics.BDD.ShouldListener" /> output.
+            </summary>
+			<param name="prefix">The prefix to be prepended to the output</param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.PrefixShouldListenerFilter.LogError(System.String)">
+			<summary>
+            Logs failed tests.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.PrefixShouldListenerFilter.LogPending(System.String)">
+			<summary>
+            Logs pending (not implemented) tests.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.ShouldExtensions">
+			<summary>
+            Shortcuts for <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" />.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka(System.Action,System.String)">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka(System.Action,System.Func{System.String})">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka(System.Single,System.String)">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka(System.Single,System.Func{System.String})">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka(System.Double,System.String)">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka(System.Double,System.Func{System.String})">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka``1(System.Collections.Generic.IEnumerable{``0},System.Func{System.String})">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka(System.String,System.String)">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka(System.String,System.Func{System.String})">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka``1(``0,System.String)">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Aka``1(``0,System.Func{System.String})">
+			<summary>
+            Sets the variable name for human-readable output of the "should" assertion.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should(Artees.Diagnostics.BDD.ValueThrow)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should(System.Action)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should(Artees.Diagnostics.BDD.ValueFloat)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should(System.Single)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should(Artees.Diagnostics.BDD.ValueDouble)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should(System.Double)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should``1(Artees.Diagnostics.BDD.ValueEnumerable{``0})">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should``1(System.Collections.Generic.IEnumerable{``0})">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should(Artees.Diagnostics.BDD.ValueString)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should(System.String)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should``1(Artees.Diagnostics.BDD.Value{``0})">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should``1(``0)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should``1(Artees.Diagnostics.BDD.Value{``0},System.String)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Should``1(``0,System.String)">
+			<summary>
+            Returns available assertions for this value.
+            </summary>
+			<param name="value">
+            The value for which the available assertions are to be returned
+            </param>
+			<param name="pendingTest">
+            The message describing the pending test. Use only for pending (not implemented) tests.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Not``1(``0)">
+			<summary>
+            Returns the opposite assertions.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldExtensions.Not``1(``0,System.String)">
+			<summary>
+            Returns the opposite assertions.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.ShouldAssertions">
+			<summary>
+            Methods and properties that help you implement invariants for your code. 
+            </summary>
+		</member>
+		<member name="F:Artees.Diagnostics.BDD.ShouldAssertions.Listeners">
+			<summary>
+            The list of listeners that is monitoring the <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" /> output.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldAssertions.Clear">
+			<summary>
+            Resets the state of <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" />. Use with caution.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldAssertions.Fail(System.String)">
+			<summary>
+            Logs a failed test.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldAssertions.LogPendingTest(System.String)">
+			<summary>
+            Logs a pending (not implemented) test.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.ShouldException">
+			<summary>Thrown when a "should" assertion failed.</summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.ShouldListener">
+			<summary>
+            A listener that monitors <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" /> output.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldListener.#ctor">
+			<summary>
+            Initializes a new instance of the <see cref="T:Artees.Diagnostics.BDD.ShouldListener" /> class that
+            monitors <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" /> output.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldListener.ClearFilters">
+			<summary>
+            Remove all filters from the <see cref="T:Artees.Diagnostics.BDD.ShouldListener" />.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldListener.PrependFilter(Artees.Diagnostics.BDD.ShouldListenerFilter)">
+			<summary>
+            Add a <see cref="T:Artees.Diagnostics.BDD.ShouldListenerFilter" /> to the list of filters.
+            </summary>
+			<param name="filter">
+            The <see cref="T:Artees.Diagnostics.BDD.ShouldListenerFilter" /> to be added to the list of filters.
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldListener.LogError(System.String)">
+			<summary>
+            Logs failed tests.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldListener.LogPending(System.String)">
+			<summary>
+            Logs pending (not implemented) tests.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldListener.Dispose"></member>
+		<member name="T:Artees.Diagnostics.BDD.ShouldListenerFilter">
+			<summary>
+            A filter that processes a <see cref="T:Artees.Diagnostics.BDD.ShouldListener" /> output.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldListenerFilter.LogOutputError(System.String)">
+			<summary>
+            Direct the failed test message to the next filter or listener.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldListenerFilter.LogOutputPending(System.String)">
+			<summary>
+            Direct the pending test message to the next filter or listener.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldListenerFilter.LogError(System.String)">
+			<summary>
+            Logs failed tests.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ShouldListenerFilter.LogPending(System.String)">
+			<summary>
+            Logs pending (not implemented) tests.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.TraceShouldListener">
+			<summary>
+            A <see cref="T:Artees.Diagnostics.BDD.ShouldListener" /> that directs the <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" /> output to
+            <see cref="T:System.Diagnostics.Trace" />.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.TraceShouldListener.LogError(System.String)">
+			<summary>
+            Logs failed tests.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.TraceShouldListener.LogPending(System.String)">
+			<summary>
+            Logs pending (not implemented) tests.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.Value">
+			<summary>
+            Contains the methods that implement the <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" />.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value.#ctor(System.Func{System.String})">
+			<summary>
+            Initializes an instance of the <see cref="T:Artees.Diagnostics.BDD.Value" /> class used in
+            <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" />.
+            </summary>
+		</member>
+		<member name="P:Artees.Diagnostics.BDD.Value.Name">
+			<summary>
+            The value name for human-readable output.
+            </summary>
+		</member>
+		<member name="P:Artees.Diagnostics.BDD.Value.Should">
+			<summary>
+            Returns "should" for a regular assertion and "should not" for an inverted one.
+            </summary>
+		</member>
+		<member name="P:Artees.Diagnostics.BDD.Value.ActualString">
+			<summary>
+            Returns a string that represents the actual (not the expected) value.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value.ActualShould``1(``0)">
+			<returns>actual.Aka(Name).Should()</returns>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value.ActualShould``1(System.Collections.Generic.IEnumerable{``0})">
+			<returns>actual.Aka(Name).Should()</returns>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.Value`1">
+			<summary>
+            Contains the methods that implement the <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" />.
+            </summary>
+		</member>
+		<member name="F:Artees.Diagnostics.BDD.Value`1.Actual">
+			<summary>
+            The actual (not the expected) value.
+            </summary>
+		</member>
+		<member name="P:Artees.Diagnostics.BDD.Value`1.ActualString">
+			<summary>
+            Returns a string that represents the actual (not the expected) value.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.BeEqual``1(``0)">
+			<summary>
+            Verifies that two values are equal.
+            </summary>
+			<param name="expected">The value that is expected</param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.LogShouldBeEqualError``1(``0)">
+			<summary>
+            Logs a message when an "equal" assertion failed.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.LogShouldBeNaNError">
+			<summary>
+            Logs a message when a "NaN" assertion failed.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.BeTrue">
+			<summary>
+            Asserts that a condition is true.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.BeFalse">
+			<summary>
+            Asserts that a condition is false.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.BeNull">
+			<summary>
+            Verifies that the object is equal to <code>null</code></summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.BeGreaterThan``1(``0)">
+			<summary>
+            Verifies that the value is greater.
+            </summary>
+			<param name="expected">The value that expected to be less</param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.BeLessThan``1(``0)">
+			<summary>
+            Verifies that the value is less.
+            </summary>
+			<param name="expected">The value that expected to be greater</param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.BeGreaterThanOrEqual``1(``0)">
+			<summary>
+            Verifies that the value is greater or equal.
+            </summary>
+			<param name="expected">The value that expected to be less</param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.BeLessThanOrEqual``1(``0)">
+			<summary>
+            Verifies that the value is less or equal.
+            </summary>
+			<param name="expected">The value that expected to be greater</param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.Contains``1(``0)">
+			<summary>
+            Asserts that the collection contains an item.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.BeInstanceOf``1">
+			<summary>
+            Asserts that the object is an instance of a given type.
+            </summary>
+			<typeparam name="TValue">The expected Type</typeparam>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.BeSame``1(``0)">
+			<summary>
+            Asserts that two objects refer to the same object.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.Value`1.LogError(System.String)">
+			<summary>
+            Logs failed tests.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.ValueDouble">
+			<summary>
+            Contains the methods that implement the <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" />.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ValueDouble.BeEqual(System.Double,System.Double)">
+			<summary>
+            Verifies that two values are equal considering a delta. 
+            </summary>
+			<param name="expected">The expected value</param>
+			<param name="delta">
+            The maximum acceptable difference between the expected and the actual
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ValueDouble.BeNaN">
+			<summary>
+            Verifies that the value is an <code>NaN</code> value.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.ValueEnumerable`1">
+			<summary>
+            Contains the methods that implement the <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" />.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ValueEnumerable`1.Contains(`0)">
+			<summary>
+            Asserts that the collection contains an item.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.ValueFloat">
+			<summary>
+            Contains the methods that implement the <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" />.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ValueFloat.BeEqual(System.Single,System.Single)">
+			<summary>
+            Verifies that two values are equal considering a delta. 
+            </summary>
+			<param name="expected">The expected value</param>
+			<param name="delta">
+            The maximum acceptable difference between the expected and the actual
+            </param>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ValueFloat.BeNaN">
+			<summary>
+            Verifies that the value is an <code>NaN</code> value.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.ValueString">
+			<summary>
+            Contains the methods that implement the <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" />.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ValueString.Contains(System.String)">
+			<summary>
+            Asserts that the string contains a substring.
+            </summary>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.ValueThrow">
+			<summary>
+            Contains the methods that implement the <see cref="T:Artees.Diagnostics.BDD.ShouldAssertions" />.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.ValueThrow.Throw``1">
+			<summary>
+            Verifies that a delegate throws a particular exception when called.
+            </summary>
+			<typeparam name="T">Type of the expected exception</typeparam>
+		</member>
+		<member name="T:Artees.Diagnostics.BDD.WarningShouldListener">
+			<summary>
+            A <see cref="T:Artees.Diagnostics.BDD.ShouldListener" /> that writes a warning message to the <see cref="T:System.Diagnostics.Trace" />
+            listeners.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.WarningShouldListener.LogError(System.String)">
+			<summary>
+            Logs failed tests.
+            </summary>
+		</member>
+		<member name="M:Artees.Diagnostics.BDD.WarningShouldListener.LogPending(System.String)">
+			<summary>
+            Logs pending (not implemented) tests.
+            </summary>
+		</member>
+	</members>
+</doc>
