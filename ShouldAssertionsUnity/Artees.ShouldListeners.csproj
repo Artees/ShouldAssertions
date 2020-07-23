@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Artees\BDD\UnityShouldListener.cs" />
+     <Compile Include="Assets\Artees\BDD\UnityShouldListenerInitializer.cs" />
      <None Include="Assets\Artees\BDD\Artees.ShouldAssertions.asmdef" />
      <None Include="Assets\Artees\BDD\Release\ShouldAssertions.xml" />
  <Reference Include="UnityEditor.TestRunner">
