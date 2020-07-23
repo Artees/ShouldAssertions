@@ -108,6 +108,7 @@ private void OnDestroy()
     _listener.Dispose();
 }
 ```
+Drag the `UnityShouldListenerInitializer.prefab` into your first scene to easily add the `UnityShouldListener`.
 
 ## Assertions
 | Type              | Example                                      | Description                                                           |
