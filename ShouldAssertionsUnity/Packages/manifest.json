@@ -2,7 +2,7 @@
   "scopedRegistries": [
     {
       "name": "Artees",
-      "url": "https://upm.artees.games:4873",
+      "url": "https://upm.artees.games",
       "scopes": [
         "games.artees"
       ]
